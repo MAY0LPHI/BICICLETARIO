@@ -1605,31 +1605,31 @@ class TypingGame {
         return this.language === 'pt' ? this.portugueseWords : this.englishWords;
     }
 
-    generateWords() {
+    generateSingleWord() {
         const wordList = this.getWordList();
+        let word = wordList[Math.floor(Math.random() * wordList.length)];
+        
+        // Add punctuation randomly
+        if (this.includePunctuation && Math.random() < 0.15) {
+            const punct = this.punctuationMarks[Math.floor(Math.random() * this.punctuationMarks.length)];
+            word = word + punct;
+        }
+        
+        // Add numbers randomly
+        if (this.includeNumbers && Math.random() < 0.1) {
+            const num = Math.floor(Math.random() * 100).toString();
+            word = Math.random() < 0.5 ? num + word : word + num;
+        }
+        
+        return word;
+    }
+
+    generateWords() {
         const wordCount = this.gameMode === 'words' ? this.wordLimit : 150;
         
         this.testWords = [];
         for (let i = 0; i < wordCount; i++) {
-            let word = wordList[Math.floor(Math.random() * wordList.length)];
-            
-            // Add punctuation randomly
-            if (this.includePunctuation && Math.random() < 0.15) {
-                const punct = this.punctuationMarks[Math.floor(Math.random() * this.punctuationMarks.length)];
-                word = word + punct;
-            }
-            
-            // Add numbers randomly
-            if (this.includeNumbers && Math.random() < 0.1) {
-                const num = Math.floor(Math.random() * 100).toString();
-                if (Math.random() < 0.5) {
-                    word = num + word;
-                } else {
-                    word = word + num;
-                }
-            }
-            
-            this.testWords.push(word);
+            this.testWords.push(this.generateSingleWord());
         }
         this.wordInputs = this.testWords.map(() => '');
     }
@@ -1828,9 +1828,8 @@ class TypingGame {
                         this.incorrectChars++;
                     }
                 } else if (i >= currentWord.length) {
-                    // Extra characters
+                    // Extra characters - only count as extra, not as incorrect
                     this.extraChars++;
-                    this.incorrectChars++;
                 } else {
                     // Missing characters
                     this.incorrectChars++;
@@ -1850,20 +1849,10 @@ class TypingGame {
             // Generate more words if needed
             if (this.currentWordIndex >= this.testWords.length) {
                 if (this.gameMode === 'time') {
-                    // In time mode, regenerate words
+                    // In time mode, regenerate words using helper method
                     const additionalWords = [];
-                    const wordList = this.getWordList();
                     for (let i = 0; i < 50; i++) {
-                        let word = wordList[Math.floor(Math.random() * wordList.length)];
-                        if (this.includePunctuation && Math.random() < 0.15) {
-                            const punct = this.punctuationMarks[Math.floor(Math.random() * this.punctuationMarks.length)];
-                            word = word + punct;
-                        }
-                        if (this.includeNumbers && Math.random() < 0.1) {
-                            const num = Math.floor(Math.random() * 100).toString();
-                            word = Math.random() < 0.5 ? num + word : word + num;
-                        }
-                        additionalWords.push(word);
+                        additionalWords.push(this.generateSingleWord());
                     }
                     this.testWords = this.testWords.concat(additionalWords);
                     this.wordInputs = this.wordInputs.concat(additionalWords.map(() => ''));
