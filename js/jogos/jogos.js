@@ -3789,18 +3789,18 @@ class TermoGame {
         this.canvas.width = 400;
         this.canvas.height = 500;
         
-        // Bicycle-themed 5-letter Portuguese words
+        // Bicycle-themed 5-letter Portuguese words (normalized without accents)
         this.words = [
             'PEDAL', 'RODAS', 'SELIM', 'FREIO', 'RAIOS',
-            'PNEUS', 'CUBO', 'GARFO', 'EIXOS', 'AROS',
-            'JANTE', 'GUIDO', 'PINAO', 'CABOS', 'CICLAO',
-            'SPEED', 'FIXA', 'COROA', 'BIKE', 'CICLO',
-            'LIGAS', 'MOLAS', 'TUBOS', 'LUVAS', 'CASAL',
-            'CINZA', 'PRETO', 'BRACO', 'PISTA', 'RUAS',
-            'PARIS', 'PEDAS', 'METAL', 'VERDE', 'AZUIS',
-            'TERRA', 'PEGAS', 'BANCO', 'ALTOS', 'ASAS',
-            'RODAO', 'TITAN', 'FIBRA', 'FAROL', 'TOMBO',
-            'TROCA', 'MARCA', 'MODELO', 'CORES', 'GUARD'
+            'PNEUS', 'GARFO', 'EIXOS', 'JANTE', 'GUIAO',
+            'CABOS', 'COROA', 'CICLO', 'LIGAS', 'MOLAS',
+            'TUBOS', 'LUVAS', 'PISTA', 'PEGAS', 'TITAN',
+            'FIBRA', 'FAROL', 'TROCA', 'MARCA', 'CARGA',
+            'VOLTS', 'RACER', 'RISCO', 'PECAS', 'SPORT',
+            'TURBO', 'LENTO', 'VELOZ', 'BANCO', 'SINAL',
+            'CURVA', 'RAMPA', 'SUBIR', 'DESCI', 'PASEO',
+            'URBAN', 'RURAL', 'ATIVA', 'LIDER', 'METAL',
+            'ROLAR', 'GIRAR', 'ANDAR', 'PARAR', 'BARRA'
         ];
         
         this.maxAttempts = 6;
