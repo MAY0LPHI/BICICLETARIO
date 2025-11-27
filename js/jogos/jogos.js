@@ -4341,7 +4341,7 @@ class TermoDuoGame {
             'CORAR', 'CORES', 'COSMO', 'COXAS', 'COZER',
             'CRAVO', 'CRIME', 'CUECA', 'CULPA', 'DAMAS',
             'DEDOS', 'DIZER', 'DOBRO', 'DORES', 'DOTAR',
-            'DURAS', 'DUROS', 'ERROS', 'ESTOU', 'EXCEL',
+            'DURAS', 'DUROS', 'ERROS', 'ESTOU', 'EXAME',
             'FALAM', 'FALSO', 'FAUNA', 'FEIRA', 'FERRO',
             'FEUDO', 'FIBRA', 'FILME', 'FLORA', 'FOCAR',
             'FOCOS', 'FOLIA', 'FONTE', 'FORUM', 'FROTA',
