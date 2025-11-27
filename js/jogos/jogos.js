@@ -3790,17 +3790,17 @@ class TermoGame {
         // Bicycle-themed Portuguese words (5 letters)
         this.words = [
             'PEDAL', 'RODAS', 'FREIO', 'SELAS', 'RAIOS', 'PNEUS', 'CABOS', 
-            'GUIAS', 'AROS', 'BIKES', 'PEGAS', 'TUBOS', 'TRILHA', 'RENDA',
-            'CALOI', 'SPEED', 'PASMO', 'CICLO', 'FREIR', 'ROLAR', 'GIROS',
-            'ROTAS', 'SULCO', 'PISTA', 'MARCA', 'MOTOR', 'LUZES', 'BANCO',
-            'METAL', 'TRAVA', 'PRETO', 'BRAVO', 'RITMO', 'VOLTA', 'VIRAR',
-            'TURNO', 'CURSO', 'RAMPA', 'SUBIR', 'DESCI', 'VENTO', 'CASCO',
-            'COURO', 'BOLSA', 'CESTA', 'PORTE', 'ANDAR', 'RODAR', 'PEGAR',
-            'FAZER', 'MONTAR', 'SUJAR', 'LIMPA', 'LAVAR', 'SECAR', 'OLHAR',
-            'VISTA', 'CHAVE', 'BOMBA', 'PULSO', 'BRAÇO', 'CORPO', 'FORÇA',
-            'RITMO', 'CALMA', 'PAUSA', 'FUNDO', 'LARGO', 'BREVE', 'LENTO',
-            'VELOZ', 'RAPAZ', 'MOÇAS', 'GRUPO', 'FESTA', 'CLUBE', 'TORCE',
-            'ARENA', 'CAMPO', 'VERDE', 'FLORA', 'FAUNA', 'CHUVA', 'TEMPO'
+            'GUIAS', 'BIKES', 'PEGAS', 'TUBOS', 'RENDA', 'CALOI', 'SPEED',
+            'PASMO', 'CICLO', 'ROLAR', 'GIROS', 'ROTAS', 'SULCO', 'PISTA',
+            'MARCA', 'MOTOR', 'LUZES', 'BANCO', 'METAL', 'TRAVA', 'PRETO',
+            'BRAVO', 'RITMO', 'VOLTA', 'VIRAR', 'TURNO', 'CURSO', 'RAMPA',
+            'SUBIR', 'DESCE', 'VENTO', 'CASCO', 'COURO', 'BOLSA', 'CESTA',
+            'PORTE', 'ANDAR', 'RODAR', 'PEGAR', 'FAZER', 'SUJAR', 'LIMPO',
+            'LAVAR', 'SECAR', 'OLHAR', 'VISTA', 'CHAVE', 'BOMBA', 'PULSO',
+            'CORPO', 'CALMA', 'PAUSA', 'FUNDO', 'LARGO', 'BREVE', 'LENTO',
+            'VELOZ', 'RAPAZ', 'GRUPO', 'FESTA', 'CLUBE', 'TORCE', 'ARENA',
+            'CAMPO', 'VERDE', 'FLORA', 'FAUNA', 'CHUVA', 'TEMPO', 'PNEUM',
+            'RASTO', 'SELIM', 'FREAO', 'PEDRA', 'FOLHA', 'ERVAS', 'MALHA'
         ];
         
         this.maxAttempts = 6;
@@ -4128,13 +4128,8 @@ class TermoGame {
     }
 
     newGame() {
-        // Select a random word
+        // Select a random word (all words are guaranteed to be 5 letters)
         this.targetWord = this.words[Math.floor(Math.random() * this.words.length)].toUpperCase();
-        
-        // Ensure word is exactly 5 letters
-        while (this.targetWord.length !== this.wordLength) {
-            this.targetWord = this.words[Math.floor(Math.random() * this.words.length)].toUpperCase();
-        }
         
         this.currentAttempt = 0;
         this.currentGuess = '';
